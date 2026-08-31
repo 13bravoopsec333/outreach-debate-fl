@@ -47,6 +47,7 @@ body {
 
 img {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -343,6 +344,7 @@ body.menu-open .burger span:nth-child(3) {
 }
 
 .hero-figure img {
+  width: 100%;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
   aspect-ratio: 3 / 2;
@@ -815,6 +817,7 @@ body.menu-open .burger span:nth-child(3) {
 }
 
 .split img {
+  width: 100%;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
 }

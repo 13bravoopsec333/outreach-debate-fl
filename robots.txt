@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://13bravoopsec333.github.io/outreach-debate-fl/sitemap.xml

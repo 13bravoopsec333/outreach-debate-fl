@@ -43,6 +43,9 @@ function renderPosts(grid, data) {
     img.src = src;
     img.alt = cap;
     img.loading = "lazy";
+    img.width = 720;
+    img.height = 900;
+    img.decoding = "async";
 
     const overlay = document.createElement("div");
     overlay.className = "ig-card-overlay";
