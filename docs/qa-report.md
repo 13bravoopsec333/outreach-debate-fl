@@ -1,75 +1,75 @@
-# QA Report — Outreach Debate Florida (Academic Editorial redesign)
+# QA Report — Outreach Debate Florida ("AL Look, Clean" redesign)
 
 **Date:** 2026-08-31 · **Tester:** QA/verification agent (deepseek-v4-flash)
 **Scope:** `index.html`, `mentor-program.html`, `css/style.css`, `js/main.js`, `js/instagram.js`
-**Contract:** `docs/design-contract.md` (v2, "Academic Editorial")
+**Contract:** `docs/design-contract.md` (v3, "AL Look, Clean")
 
 ---
 
-## 1. Static checks — PASS (after fixes)
+## 1. Static checks — PASS
 
 | Check | Result |
 |---|---|
-| Forbidden patterns (`blur(`, `backdrop-filter`, `marquee`, `blob`, `hero-badge`, `soon-pill`, `track-icon`, `btn-ghost`, `Poppins`, old hex `#297698`/`#eb5354`) | Clean in all 4 site files (matches only in `*-raw.html` scrape artifacts, excluded) |
-| Emoji (🧠🎙️🏆✨ etc.) | None in site files (only in `*-raw.html` artifacts) |
-| Box-shadows | All `var(--shadow-card)` = `0 1px 3px rgba(0,0,0,0.08)` — contract max |
-| Class cross-check (HTML classes vs CSS selectors) | **`.hero-copy` unstyled → FIXED** (added `min-width: 0`); all others styled |
-| Internal anchors | All resolve (`#scholarship`, `#field-notes`, `#apply` exist) |
-| Local file refs / assets | All exist (`assets/img/*`, `assets/instagram/*`) |
-| Google Form URL | Present in mentor-program.html (3×) — exact match |
-| Instagram URL | Present in both pages — exact match |
-| YouTube URL | Present in both pages — exact match |
-| Hero img `fetchpriority="high"` | Both pages ✓; added `decoding="async"` to index hero |
-| Non-hero imgs `loading="lazy" decoding="async"` + w/h | **FIXED**: index nav/footer logo + social icons, mentor nav logo + footer icons lacked attrs; mentor footer icons lacked `width`/`height` |
-| IG cards JS | `width/height` (720×900), lazy + async, `data/posts.json` (3 posts), local images exist |
-| Fonts | Exactly 2 families (`Source Serif 4`, `Inter`), `display=swap`, preconnect ✓ |
-| `theme-color` = `#F7F5F0` | Both pages ✓ |
-| `prefers-reduced-motion` | Disables all transitions, forces `.reveal` visible ✓ |
-| Reveal motion | Opacity-only 0.6s ease, no transform ✓ |
+| Deleted raster icons (`assets/img/ig-icon.png`, `assets/img/yt-icon.png`) | ✅ deleted; zero references remain in html/css/js (grep across repo) |
+| Forbidden patterns (`blur(`, `backdrop-filter`, `marquee`, `blob`, `hero-badge`, `soon-pill`, `track-icon`, `btn-ghost`, `#F7F5F0`, `#8C2F39`, `--paper`, `--font-serif`, `Source Serif`) | ✅ no hits in site files |
+| Emoji characters | ✅ none |
+| Poppins in HTML font links | ✅ both pages, exact contract URL `family=Poppins:wght@400;500;600;700&display=swap`, preconnect ✓ |
+| Poppins in CSS font vars | ✅ `--font: "Poppins", …` |
+| Bug-fix #1 no "Scholarship" nav link | ✅ both pages = Home · Mentor Program · Field Notes |
+| Bug-fix #2 brand = image only, no text span | ✅ `.nav-brand`/`.footer-brand` contain only `<img>` (verified zero spans) |
+| Bug-fix #3 no "Scholarships" footer link | ✅ footer Explore = Home · Mentor Program · Field Notes |
+| Bug-fix #4 Field Notes centered | ✅ `.section-head` center-aligned; `.ig-grid` `margin-inline:auto` + `justify-content:center`; icon-btn row centered |
+| Bug-fix #5 two `.icon-btn` inline SVGs | ✅ exactly 2 on home (Instagram + YouTube verbatim contract SVGs) |
+| Bug-fix #6 footer Connect = `.footer-social` inline SVGs | ✅ 2 SVG links, no raster |
+| Bug-fix #7 mentor page one `mentor.png` | ✅ count == 1 (hero figure), `.split` section removed, centered section-head |
+| Bug-fix #8 mentor nav = home, no Apply | ✅ nav identical, no button in nav |
+| Bug-fix #9 home hero buttons | ✅ `.btn` "Mentor Program"→mentor-program.html; `.btn-outline` "Field Notes"→index.html#field-notes |
+| Class coverage (HTML+JS classes vs CSS selectors) | ✅ all 44 classes styled; `data-ig-grid`/`data-delay` are JS hooks (no CSS needed) |
+| Internal links/anchors | ✅ `#scholarship`, `#mentorship`, `#field-notes`, `#apply` all resolve (cross-page `#field-notes` on mentor → exists on index) |
+| Assets | ✅ favicon.ico, outreach-logo.png, hero.jpg, mentor.png, css/js, data/posts.json + 3 local `assets/instagram/*.jpg` all exist |
+| Hard facts (Google Form / IG / YT URLs) | ✅ exact contract strings |
+| Img attributes (lazy/async/w-h, fetchpriority hero) | ✅ per contract |
 
-## 2. Browser verification — PASS (Playwright, 1440×900)
+## 2. Browser verification — PASS (Playwright, Chromium, desktop 1440×900)
 
 | Assertion | Home | Mentor |
 |---|---|---|
 | Console / page errors | NONE | NONE |
-| Hero `h1` | ✓ | ✓ |
-| `.ig-card` count | 3 (posts.json) | n/a (no grid on page) |
-| `.ig-empty` fallback | not shown | n/a |
-| `body` background | `rgb(247,245,240)` = paper | same |
-| Hero img aspect ratio | 1.499 (target ≈1.5) | 1.0 (mentor.png is square 1148×1148, correct) |
-| Horizontal overflow | none (1440≤1440) | none |
-| `.reveal.in` before → after full scroll | 0 → 13 | 1 → 14 |
-| `.nav.scrolled` after scroll | ✓ | ✓ |
+| body bg = rgb(41,118,152) teal | ✅ | ✅ |
+| h1 font-family contains Poppins | ✅ | ✅ |
+| nav = exactly 3 links, no Scholarship | ✅ | ✅ |
+| brand = image only | ✅ | ✅ |
+| footer-social = 2 SVG links | ✅ | ✅ |
+| `.ig-card` count == 3 | ✅ (from data/posts.json) | n/a |
+| `.icon-btn` count == 2 | ✅ | n/a |
+| Field Notes `.section-head` / `.ig-grid` / icon-btn row centered | ✅ delta 0.0px vs container center | n/a |
+| hero buttons = Mentor Program + Field Notes | ✅ | n/a |
+| mentor.png count == 1, no `.split` | n/a | ✅ |
+| `.section-head` centered | n/a | ✅ delta 0.0px |
+| `.reveal.in` after full scroll (fresh load) | ✅ 0 → 13/13 | — |
+| horizontal overflow @1440 | ✅ 0px | ✅ 0px |
 
-**Mobile (390×844):** burger visible, `body.menu-open` toggles correctly (false→true→false), no horizontal overflow. Full-page screenshots: `/tmp/opencode/qa-home.png`, `/tmp/opencode/qa-mentor.png`, `/tmp/opencode/qa-mobile.png`.
+**Mobile (390×844):** burger visible ✅; `body.menu-open` toggles ✅; panel fully in viewport when open (x=70, w=320 on 390 viewport — correct right-anchored geometry) ✅; **burger tap now closes the menu** (fixed, see §4) ✅; clicking a nav link closes the menu ✅; horizontal overflow @390 ✅ 0px.
 
-## 3. Lighthouse (headless Chromium, local server)
+Screenshots: `/tmp/opencode/al-home.png`, `/tmp/opencode/al-mentor.png`.
 
-| Category | Target | Before | After fixes |
-|---|---|---|---|
-| Performance | ≥90 | 95 | **95** |
-| Accessibility | ≥90 | 91 | **95** |
-| SEO | ≥95 | 100 | **100** |
+## 3. Lighthouse (headless Chromium 1234, local http.server, perf/a11y/seo)
 
-- Performance: no `overallSavingsMs` opportunities listed; target met with margin.
-- Accessibility +4 points from: adding `<main>` landmark, fixing heading order (footer `h4`→`h3`), fixing invisible index footer wordmark.
-- **Remaining a11y flag (not fixed):** `color-contrast` — all flagged nodes are `--muted` `#7A838F` text (`.hero-meta`, `.figcaption`, `.footer-desc`, `.footer-links`, `.legal`), which the design contract specifies verbatim in its palette and component specs (figcaption/ig-meta "color `--muted`", footer "`--muted` text"). Fixing requires deviating from the contract's exact hex values; left as a documented design tradeoff. Score 95 still far exceeds the 90 target.
+| Category | Target | Result |
+|---|---|---|
+| Performance | ≥90 | **95** (LCP 2.9s, TBT 0ms, no perf opportunities) |
+| Accessibility | ≥90 | **95** |
+| SEO | ≥90 (task target 95) | **100** |
 
-## 4. Fix log (files changed by QA)
+**Contrast flags (documented, not fixed):** 5 nodes fail WCAG AA, all from **contract-mandated** colors: `.hero-eyebrow` (coral `#EB5354` on teal = 1.42:1), `.hero-dek` (`--white-dim` = 4.14:1), `.hero-meta`/`.figcaption` (`--white-faint` = 2.97:1), `.btn` (white on coral = 3.56:1). The contract palette (§2) specifies these exact hex/alpha values and only claims "white on teal passes" — which it does (headings unflagged). Fixing would require deviating from the authoritative contract palette. Score 95 far exceeds the 90 target; flag for the client only if the palette can change.
+
+## 4. Fix log (changes made by QA)
 
 | File | Change | Reason |
 |---|---|---|
-| `css/style.css` | Added `.hero-copy { min-width: 0; }` | Unstyled class used on mentor page (cross-check) |
-| `css/style.css` | `.footer h4` → `.footer h3` | Heading-order skip (h2→h4) |
-| `index.html` | Hero img: added `decoding="async"` | LCP best practice |
-| `index.html` | Nav logo, footer logo, ig-icon, yt-icon: added `loading="lazy" decoding="async"` | Contract img-attribute rule |
-| `index.html` | Footer brand span: added `class="fb-name"` | Wordmark inherited `--ink-soft` on dark footer = 1.8:1 contrast (near-invisible) |
-| `index.html` | Wrapped content in `<main>` | Landmark-one-main a11y |
-| `mentor-program.html` | Nav logo, footer logo, ig-icon, yt-icon: added `loading="lazy" decoding="async"`; footer icons got `width/height=32` | Contract img-attribute rule |
-| `mentor-program.html` | Footer `h4`→`h3`; wrapped content in `<main>` | a11y |
-
-Note: `index.html` nav-brand span was briefly removed during a faulty edit and immediately restored (verified line 23). HTML validates well-formed on both pages.
+| `assets/img/ig-icon.png`, `assets/img/yt-icon.png` | Deleted | Contract §1/§7 — replaced by inline SVGs |
+| `css/style.css` | `.burger` in `@media (max-width:720px)`: added `position: relative; z-index: 96;` | **Mobile menu close bug:** the open `--teal-deep` panel (z-index 95) covered the burger at 390px, so the burger intercepted clicks and the menu could not be closed by tapping it. Verified: before fix Playwright reported "ul.nav-links intercepts pointer events"; after fix burger closes the panel (off-screen x=406) ✅ |
 
 ## 5. Verdict
 
-**READY TO PUSH.** All contract rules hold, browser behavior is clean (no errors, no overflow, correct reveal/nav/menu), Lighthouse exceeds every target (95 / 95 / 100). Only outstanding item is the contract-specified `--muted` contrast tradeoff, which does not block release and should be revisited only if the client accepts a palette change.
+**READY TO PUSH.** All static contract checks pass, browser behavior is clean (zero console/page errors, no overflow at 1440/390, reveal 0→13, nav/brand/footer fixes all confirmed), Lighthouse exceeds every target (95 / 95 / 100). Only outstanding item is the contract-specified coral/white-dim/white-faint contrast tradeoff (§3), which does not block release.

@@ -1,4 +1,4 @@
-/* Outreach Debate Florida — site JS (nav, mobile menu, scroll reveal) */
+/* Outreach Debate Florida — nav, mobile menu, scroll reveal. Vanilla JS, minimal. */
 
 document.addEventListener("DOMContentLoaded", () => {
   initNav();
