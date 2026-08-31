@@ -1,0 +1,40 @@
+# Assets referenced by outreachdebatefl.framer.website
+
+Source site: https://outreachdebatefl.framer.website/
+Framer site ID: 6Ng6vUEyQxrlUCPhqbuxg2
+Images are hosted on framerusercontent.com. Binary files NOT downloaded (per task instructions) — URLs listed only.
+
+## Images
+
+| File | Dimensions (from HTML) | Used on | Likely role |
+|------|------------------------|---------|-------------|
+| https://framerusercontent.com/images/Awb77LDWfxTLyGnHxhI4EInU.png | 1280×1280 | Home, Mentor Program | Logo / brand mark |
+| https://framerusercontent.com/images/BOoMo1L2wimVliDTNzY5xGutKXo.png | 1600×1200 | Home, Mentor Program | Instagram icon (appears beside instagram.com/outreachdebate.fl link) |
+| https://framerusercontent.com/images/KTB1Bn2cfYqwdtdN9AVrYsPBlXk.jpg | 2048×1366 | Home only | Hero/photo image (appears next to "Learn More" button) |
+| https://framerusercontent.com/images/cwAzZwZLQIsoKZkqNyYjRlwmY.png | 1148×1148 | Mentor Program only | Content illustration (mentor page) |
+| https://framerusercontent.com/images/tmRwIrZJVfniBqiCNqJkP7krfM.png | 2400×1686 | Home, Mentor Program | YouTube icon (appears beside youtube.com/@outreachdebate link) |
+
+Framer serves each image in multiple sizes via query params, e.g.:
+- ?width=1280&height=1280 (original)
+- ?scale-down-to=1024&width=1280&height=1280
+- ?scale-down-to=512&width=1280&height=1280
+
+## Favicons / site icons (default Framer)
+
+- https://framerusercontent.com/sites/icons/default-favicon-dark.v1.png
+- https://framerusercontent.com/sites/icons/default-favicon-light.v1.png
+- https://framerusercontent.com/sites/icons/default-touch-icon.v3.png
+
+## Fonts (Fontshare webfonts, self-hosted via framerusercontent)
+
+- https://framerusercontent.com/third-party-assets/fontshare/wf/6KNUAYMK3PTPQA22366IWF5JUVT35NZ3/E4CLT6PE4W64IV56BHAWFRZFLHPZIXFF/DEPNXL2T77QGX4DXZAN3G53TXHO2JEFP.woff2
+- https://framerusercontent.com/third-party-assets/fontshare/wf/6U2SGH566NSNERG6RGEV3DSNEK7DL2RF/JRDYRKMSAW2H35IWEQIPL67HAJQ35MG5/JNU3GNMUBPWW6V6JTED3S27XL5HN7NM5.woff2
+- https://framerusercontent.com/third-party-assets/fontshare/wf/7EWHG4AMROQSXDCQTDPGBVASATB7CED2/TJSQTK5FHJ2MYKML5IXF2G6YTGFJLTYL/K4ZMLVLHYIFVTTTWGVOTVGOFUUX7NVGI.woff2
+- https://framerusercontent.com/third-party-assets/fontshare/wf/BNWG6MUI4RTC6WEND2VPDH4MHMIVU3XZ/R5YXY5FMVG6PXU36GNEEA24MIPMEPGSM/CIM4KQCLZSMMLWPVH25IDDSTY4ENPHEY.woff2
+- https://framerusercontent.com/third-party-assets/fontshare/wf/NGBUP45ES3F7RD5XGKPEDJ6QEPO4TMOK/EXDVWJ2EDDVVV65UENMX33EDDYBX6OF7/6P4FPMFQH7CCC7RZ4UU4NKSGJ2RLF7V5.woff2
+
+## Other referenced assets
+
+- Search index (Framer SEO data), referenced by both pages:
+  - https://framerusercontent.com/sites/6Ng6vUEyQxrlUCPhqbuxg2/searchIndex-pX7kpzxQh1lC.json
+  - https://framerusercontent.com/sites/6Ng6vUEyQxrlUCPhqbuxg2/searchIndex-TCXPHX0DweMM.json
