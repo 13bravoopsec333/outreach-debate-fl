@@ -1,11 +1,11 @@
-/* Outreach Debate Florida — site JS (nav, reveal, marquee) */
+/* Outreach Debate Florida — site JS (nav, mobile menu, scroll reveal) */
 
 document.addEventListener("DOMContentLoaded", () => {
   initNav();
   initReveal();
-  initMarquee();
-  initActiveLink();
 });
+
+document.addEventListener("add-reveals", initReveal);
 
 function initNav() {
   const nav = document.querySelector(".nav");
@@ -29,7 +29,7 @@ function initNav() {
 }
 
 function initReveal() {
-  const els = document.querySelectorAll(".reveal");
+  const els = document.querySelectorAll(".reveal:not(.in)");
   if (!els.length) return;
 
   if (!("IntersectionObserver" in window)) {
@@ -46,35 +46,8 @@ function initReveal() {
         }
       });
     },
-    { threshold: 0.14, rootMargin: "0px 0px -40px 0px" }
+    { threshold: 0.15 }
   );
 
   els.forEach((el) => io.observe(el));
-}
-
-function initActiveLink() {
-  const path = location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll(".nav-links a").forEach((a) => {
-    const href = a.getAttribute("href");
-    if (href === path) a.classList.add("active");
-  });
-}
-
-document.addEventListener("add-reveals", () => {
-  initReveal();
-});
-
-function initMarquee() {
-  const track = document.querySelector(".marquee-track");
-  if (!track) return;
-
-  const gap = 26;
-  let totalWidth = 0;
-  track.querySelectorAll("span").forEach((s) => {
-    totalWidth += s.offsetWidth + gap;
-  });
-
-  if (totalWidth > 0) {
-    track.innerHTML += track.innerHTML;
-  }
 }
