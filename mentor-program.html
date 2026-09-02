@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mentor Program — Outreach Debate Florida</title>
-  <meta name="description" content="Apply to be matched with a debate mentor for research, speaking drills, and advanced strategy. Free, online, and open to Florida students." />
+  <meta name="description" content="Free, online debate mentorship for Florida students. Apply once. Get matched. Start preparing." />
   <meta property="og:title" content="Mentor Program — Outreach Debate Florida" />
-  <meta property="og:description" content="Your next round starts with a mentor in your corner." />
+  <meta property="og:description" content="Free, online debate mentorship for Florida students. Apply once. Get matched." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#c9a84c" />
   <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon" />
@@ -39,6 +39,50 @@
       color: var(--gold);
       font-weight: 600;
     }
+    .mentor-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .mentor-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    .mentor-list li:last-child {
+      border-bottom: none;
+    }
+    .mentor-list strong {
+      color: var(--ink);
+    }
+    .how-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .how-list li {
+      padding: 16px 0;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .how-list li + li {
+      border-top: 1px solid var(--line);
+    }
+    .how-list .step-num {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      line-height: 28px;
+      text-align: center;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-right: 12px;
+      vertical-align: middle;
+    }
     @media (max-width: 640px) {
       .form-wrapper iframe {
         min-height: 500px;
@@ -65,16 +109,15 @@
   </header>
 
   <main>
-    <!-- Hero — asymmetric: text left, image right -->
+    <!-- Hero -->
     <section class="hero">
       <div class="container hero-split">
         <div class="hero-copy reveal">
-          <p class="hero-eyebrow">— Mentor / Mentee Program —</p>
-          <h1>Your next round starts with a mentor in your corner.</h1>
+          <p class="hero-eyebrow">Mentor Program</p>
+          <h1>Free debate mentorship for Florida students.</h1>
           <p class="hero-dek">
-            Apply to be matched with a debate mentor who can help you sharpen your case, build
-            speaking confidence, and grow into advanced debate. Free, online, and open to all
-            Florida students.
+            Apply once. Get matched. Start preparing.
+            No cost, no tryout — just 5 minutes to apply.
           </p>
           <p class="hero-meta">Free · Online · Open to all Florida students</p>
           <div class="hero-actions">
@@ -84,107 +127,67 @@
         </div>
         <figure class="hero-figure reveal">
           <img src="assets/img/mentor.png" alt="Illustration of a mentor and mentee preparing for a round" width="1148" height="1148" fetchpriority="high" decoding="async" />
-          <figcaption class="figcaption">The mentor–mentee relationship, from first tournament to finals.</figcaption>
         </figure>
       </div>
     </section>
 
-    <!-- What You Get — horizontal card layout -->
+    <!-- What mentorship covers -->
     <section class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">— What You Get —</span>
-          <h2>Better preparation. Braver voices.</h2>
-          <p>
-            The Mentor/Mentee Program connects students across Florida with experienced debate
-            mentors who provide personalized guidance, practice, and feedback. Whether you're
-            preparing for your first tournament or aiming for advanced competition, mentors help
-            you build stronger cases and confidence in every round.
-          </p>
+      <div class="container two-col reveal">
+        <div>
+          <h2>What mentorship covers</h2>
+          <ul class="mentor-list">
+            <li><strong>Case development</strong> — building arguments with better evidence and cleaner organization</li>
+            <li><strong>Speaking drills</strong> — practicing clarity, speed, and delivery with real feedback</li>
+            <li><strong>Advanced strategy</strong> — prep habits, rebuttal choices, round management</li>
+          </ul>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 16px;" class="reveal">
-          <div class="item-h">
-            <span class="item-num">I</span>
-            <div class="item-body">
-              <h3>Case development</h3>
-              <p>
-                Build arguments with better evidence, cleaner organization, and a strategy you can
-                explain under pressure.
-              </p>
-            </div>
-          </div>
-          <div class="item-h">
-            <span class="item-num">II</span>
-            <div class="item-body">
-              <h3>Speaking drills</h3>
-              <p>
-                Practice clarity, speed, cross-examination, and delivery with feedback that makes
-                every speech sharper.
-              </p>
-            </div>
-          </div>
-          <div class="item-h">
-            <span class="item-num">III</span>
-            <div class="item-body">
-              <h3>Advanced debate</h3>
-              <p>
-                Learn the strategic habits behind advanced prep, rebuttal choices, and confident
-                round management.
-              </p>
-            </div>
+        <div>
+          <div class="card-minimal">
+            <h3>Free · Online · Flexible</h3>
+            <p>
+              Meet on your schedule. No travel required. Mentors are experienced Florida
+              debaters who know the circuits and tournaments you're competing in.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Who It's For — flipped split -->
+    <!-- Who it's for -->
     <section class="section section-alt">
-      <div class="container split flip-on-tablet">
-        <div class="brand-block reveal">
-          <span class="bb-word">YOUR</span>
-          <span class="bb-word">MENTOR</span>
-          <span class="bb-word">WAITS</span>
-        </div>
-        <div class="split-copy reveal">
-          <span class="eyebrow">— Who It's For —</span>
-          <h2>Every Florida student who wants to compete.</h2>
+      <div class="container">
+        <div class="reveal" style="max-width: 640px;">
+          <h2>Any Florida student who wants to get better at debate.</h2>
           <p>
-            Whether you've never been to a tournament or you're prepping for state finals,
-            the program is built for you. We match based on your goals, experience level,
-            and event — so you get support that actually fits where you are.
-          </p>
-          <p>
-            No cost. No tryout. Just fill out the application and we'll find the right mentor
-            for you.
+            First-timers welcome. State-level competitors welcome. We match based on your
+            goals and experience — not your win-loss record. No cost. No tryout. Just fill
+            out the application.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- How It Works — steps with connecting line -->
+    <!-- How it works -->
     <section class="section" id="how-it-works">
       <div class="container">
         <div class="section-head-left reveal">
-          <span class="eyebrow">— How It Works —</span>
-          <h2>Three steps to your first session.</h2>
+          <h2>Three steps.</h2>
         </div>
-        <div class="steps steps-line reveal">
-          <div class="step">
-            <div class="step-num">1</div>
-            <h3>Apply</h3>
-            <p>Share your debate goals, event, and experience in a short application. Takes about 5 minutes.</p>
-          </div>
-          <div class="step">
-            <div class="step-num">2</div>
-            <h3>Match</h3>
-            <p>We pair you with an experienced mentor who fits your next stage of growth.</p>
-          </div>
-          <div class="step">
-            <div class="step-num">3</div>
-            <h3>Grow</h3>
-            <p>Meet online, sharpen your cases, and build confidence round after round.</p>
-          </div>
-        </div>
+        <ul class="how-list reveal">
+          <li>
+            <span class="step-num">1</span>
+            <strong>Fill out the application</strong> — takes about 5 minutes. Share your debate goals, event, and experience.
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <strong>We match you with a mentor</strong> — within a week, you'll have a mentor who fits your stage and event.
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <strong>Meet online, sharpen your cases</strong> — regular sessions to build stronger arguments and compete with confidence.
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -192,11 +195,9 @@
     <section class="section section-alt" id="apply">
       <div class="container">
         <div class="section-head-left reveal">
-          <span class="eyebrow">— Apply Now —</span>
-          <h2>Start your mentor journey.</h2>
+          <h2>Apply now</h2>
           <p>
-            Fill out the application below. It's free, takes about 5 minutes, and we'll get
-            back to you within a week with your mentor match.
+            Free, takes 5 minutes. We'll match you with a mentor within a week.
           </p>
         </div>
         <div class="form-wrapper reveal">
@@ -216,11 +217,9 @@
     <!-- CTA -->
     <section class="cta-band">
       <div class="container">
-        <span class="eyebrow">— Questions? —</span>
-        <h2>We're here to help.</h2>
+        <h2>Got questions?</h2>
         <p>
-          If you have questions about the mentor program or the application, reach out to us
-          on Instagram or check our About page for more information.
+          DM us on Instagram if you have questions before applying.
         </p>
         <div class="hero-actions">
           <a class="btn-invert btn" href="https://www.instagram.com/outreachdebate.fl/" target="_blank" rel="noopener noreferrer">Message Us</a>
@@ -238,7 +237,7 @@
           <a class="footer-brand" href="index.html">
             <img src="assets/img/outreach-logo-footer.svg" alt="Outreach Debate Florida" width="130" height="30" loading="lazy" decoding="async" />
           </a>
-          <p class="footer-desc">Expanding access to speech and debate for Florida students — one seat at a time.</p>
+          <p class="footer-desc">Expanding access to speech and debate for Florida students.</p>
         </div>
         <div>
           <h3>Explore</h3>

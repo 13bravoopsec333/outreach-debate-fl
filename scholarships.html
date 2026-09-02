@@ -6,7 +6,7 @@
   <title>Orange Blossom Scholarship — Outreach Debate Florida</title>
   <meta name="description" content="The Orange Blossom Scholarship covers tournament fees, travel, and coaching for Florida students ready to compete in speech and debate. Applications opening soon." />
   <meta property="og:title" content="Orange Blossom Scholarship — Outreach Debate Florida" />
-  <meta property="og:description" content="Opening doors for Florida's next debate champions." />
+  <meta property="og:description" content="The scholarship that gets Florida students to tournaments." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#c9a84c" />
   <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon" />
@@ -58,6 +58,38 @@
       color: var(--gold);
       font-weight: 600;
     }
+    .covers-list {
+      list-style: none;
+      margin-top: 1rem;
+    }
+    .covers-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 1.05rem;
+    }
+    .covers-list li:last-child {
+      border-bottom: none;
+    }
+    .apply-list {
+      list-style: none;
+      counter-reset: apply;
+    }
+    .apply-list li {
+      counter-increment: apply;
+      padding: 10px 0;
+      font-size: 1.05rem;
+    }
+    .apply-list li::before {
+      content: counter(apply) ".";
+      font-weight: 600;
+      color: var(--gold);
+      margin-right: 8px;
+    }
+    .timeline-note {
+      font-size: 0.95rem;
+      color: var(--ink-light);
+      line-height: 1.7;
+    }
     @media (max-width: 640px) {
       .notify-form {
         flex-direction: column;
@@ -87,17 +119,15 @@
   </header>
 
   <main>
-    <!-- Hero — asymmetric -->
+    <!-- Hero -->
     <section class="hero">
       <div class="container">
         <div class="hero-copy reveal" style="max-width: 800px;">
-          <p class="hero-eyebrow">— The Orange Blossom Scholarship —</p>
-          <h1>Opening doors for Florida's next debate champions.</h1>
-          <hr class="gold-rule" />
+          <p class="hero-eyebrow">The Orange Blossom Scholarship</p>
+          <h1>The scholarship that gets Florida students to tournaments.</h1>
           <p class="hero-dek">
-            Tournament fees, travel, coaching, and research resources shouldn't determine who gets to
-            compete. The Orange Blossom Scholarship removes the financial barriers so Florida students
-            can focus on what matters: finding their voice.
+            The Orange Blossom Scholarship covers tournament fees, travel, and coaching costs for
+            Florida students ready to compete in speech and debate.
           </p>
           <p class="hero-meta">Coming 2026 · Applications Opening Soon</p>
           <div class="hero-actions">
@@ -108,92 +138,51 @@
       </div>
     </section>
 
-    <!-- Coming Soon — enhanced cards -->
+    <!-- What it covers -->
     <section class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">— Coming Soon —</span>
-          <h2>Applications open in 2026.</h2>
-          <p>
-            We're finalizing the details of the Orange Blossom Scholarship. In the meantime, sign up
-            to be notified when applications go live — and apply for our free Mentor Program to start
-            building your skills today.
-          </p>
-        </div>
-        <div class="grid-3 reveal">
-          <div class="item">
-            <span class="item-num">I</span>
-            <h3>Tournament fees</h3>
-            <p>
-              Entry fees, travel costs, and lodging covered for qualifying Florida students competing
-              at local and state-level tournaments.
-            </p>
-          </div>
-          <div class="item">
-            <span class="item-num">II</span>
-            <h3>Coaching & resources</h3>
-            <p>
-              Access to research databases, case-building tools, and professional coaching to sharpen
-              your preparation and delivery.
-            </p>
-          </div>
-          <div class="item">
-            <span class="item-num">III</span>
-            <h3>Mentorship</h3>
-            <p>
-              Pair your scholarship with free one-on-one mentorship from experienced Florida debaters
-              who've competed at the highest levels.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Eligibility — flipped split -->
-    <section class="section section-alt">
-      <div class="container split flip-on-tablet">
-        <div class="brand-block reveal">
-          <span class="bb-word">EVERY</span>
-          <span class="bb-word">STUDENT</span>
-          <span class="bb-word">WELCOME</span>
-        </div>
-        <div class="split-copy reveal">
-          <span class="eyebrow">— Eligibility —</span>
-          <h2>Who can apply?</h2>
-          <p>
-            The Orange Blossom Scholarship is open to any Florida student who wants to compete in
-            speech and debate — regardless of experience level, school size, or background.
-          </p>
-          <p>
-            Whether you're a first-time competitor or a seasoned debater heading to state finals,
-            if the financial barriers are holding you back, this scholarship is for you.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Timeline — steps with connecting line -->
-    <section class="section">
-      <div class="container">
+      <div class="container" style="max-width: 720px;">
         <div class="section-head-left reveal">
-          <span class="eyebrow">— Timeline —</span>
-          <h2>What to expect.</h2>
+          <h2>Everything between you and the next tournament.</h2>
+          <ul class="covers-list">
+            <li>Tournament entry fees</li>
+            <li>Travel and lodging</li>
+            <li>Coaching and research resources</li>
+          </ul>
         </div>
-        <div class="steps steps-line reveal">
-          <div class="step">
-            <div class="step-num">1</div>
-            <h3>Sign up for updates</h3>
-            <p>Enter your email below to be notified the moment applications open.</p>
+      </div>
+    </section>
+
+    <!-- Eligibility — simple text -->
+    <section class="section section-alt">
+      <div class="container" style="max-width: 720px;">
+        <div class="section-head-left reveal">
+          <h2>Who can apply.</h2>
+          <p>
+            If you're a Florida student who wants to debate but can't afford the fees, this is for you.
+          </p>
+          <p>
+            We don't care how many tournaments you've been to or whether your school has a debate team. If you want to compete and the cost is in the way, apply.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline — two-col -->
+    <section class="section">
+      <div class="container">
+        <div class="two-col reveal">
+          <div>
+            <h2>Three steps.</h2>
+            <ol class="apply-list">
+              <li>Sign up for updates below</li>
+              <li>Apply when applications open</li>
+              <li>Receive your scholarship</li>
+            </ol>
           </div>
-          <div class="step">
-            <div class="step-num">2</div>
-            <h3>Apply</h3>
-            <p>Complete a short application sharing your debate goals, experience, and financial need.</p>
-          </div>
-          <div class="step">
-            <div class="step-num">3</div>
-            <h3>Compete</h3>
-            <p>Receive your scholarship and start competing with the support you need to succeed.</p>
+          <div class="timeline-note">
+            <p>
+              We're finalizing the application timeline now. Exact dates will be announced in early 2026 — sign up above to hear the moment they're set.
+            </p>
           </div>
         </div>
       </div>
@@ -203,11 +192,9 @@
     <section class="section section-alt" id="notify">
       <div class="container">
         <div class="section-head-left reveal">
-          <span class="eyebrow">— Stay Updated —</span>
           <h2>Be the first to know.</h2>
           <p>
-            Enter your email and we'll notify you as soon as Orange Blossom Scholarship applications
-            go live. No spam — just a heads-up when it's time to apply.
+            Enter your email and we'll notify you when applications go live.
           </p>
         </div>
         <div class="form-wrapper reveal" style="max-width: 640px;">
@@ -225,8 +212,7 @@
     <!-- CTA -->
     <section class="cta-band">
       <div class="container">
-        <span class="eyebrow">— Don't Wait —</span>
-        <h2>Start building your skills today.</h2>
+        <h2>Get tournament-ready while you wait.</h2>
         <p>
           While you wait for scholarship applications to open, our free Mentor Program can help you
           sharpen your cases, build confidence, and get tournament-ready.
@@ -247,7 +233,7 @@
           <a class="footer-brand" href="index.html">
             <img src="assets/img/outreach-logo-footer.svg" alt="Outreach Debate Florida" width="130" height="30" loading="lazy" decoding="async" />
           </a>
-          <p class="footer-desc">Expanding access to speech and debate for Florida students — one seat at a time.</p>
+          <p class="footer-desc">Expanding access to speech and debate for Florida students.</p>
         </div>
         <div>
           <h3>Explore</h3>
