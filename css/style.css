@@ -650,6 +650,13 @@ body.menu-open {
   fill: currentColor;
 }
 
+.social-links {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 32px;
+}
+
 /* ---------------------------------- Footer --------------------------------- */
 
 .footer {
