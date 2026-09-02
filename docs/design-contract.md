@@ -1,15 +1,13 @@
 # Outreach Debate Florida — Design Contract v3 ("AL Look, Clean")
 
-Restore the look of the sister site **outreachdebateal.org** — deep teal + coral + Poppins,
-rounded coral buttons, white text on teal — but WITHOUT the laggy/AI-slop effects from v1
-(no gradient blobs, no marquee, no emoji, no pulsing badges, no hover-lift, no blur()).
-Keep the fast, static structure. This contract is authoritative; follow it exactly.
+Academic design language — ivory background, near-black text, muted gold accents + Poppins,
+rounded gold buttons. This contract is authoritative; follow it exactly.
 
 ## 1. Non-negotiable rules
 
 - REMOVE forever: `.marquee`, `.hero-blobs`/`.blob`, `filter: blur()`, `backdrop-filter`,
   infinite keyframe animations, emoji in content, floating/pulsing badges, hover-lift card
-  transforms (no translateY on hover), the ivory/ink/oxblood "academic" palette, serif font.
+  transforms (no translateY on hover), serif font.
 - Motion: reveals are opacity-only, 0.5s ease. `@media (prefers-reduced-motion: reduce)`
   disables all transitions. No infinite loops. Hover states are color/background changes only.
 - Fast: no heavy shadows (max `0 4px 20px rgba(10,40,60,0.25)` on large figures only), no
@@ -18,72 +16,69 @@ Keep the fast, static structure. This contract is authoritative; follow it exact
   width/height.
 - Fonts: `Poppins` (400,500,600,700). Google link:
   `https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap`
-- `<meta name="theme-color" content="#297698" />` on both pages. Favicon stays
+- `<meta name="theme-color" content="#faf8f5" />` on both pages. Favicon stays
   `assets/img/favicon.ico`.
-- Accessibility: WCAG AA contrast (white on teal passes), `alt` on all imgs, `:focus-visible`
-  outline 2px coral.
+- Accessibility: WCAG AA contrast (`--ink` on `--ivory` passes), `alt` on all imgs, `:focus-visible`
+  outline 2px `--gold`.
 
 ## 2. Palette + type (exact CSS variables)
 
 ```
---teal:      #297698   /* page background */
---teal-dark: #1E5D7B   /* alt sections / card tint */
---teal-deep: #16485E   /* footer */
---coral:     #EB5354   /* accents, CTAs, eyebrows */
---coral-dark:#D94546   /* button hover */
---white:     #FFFFFF
---white-dim: rgba(255,255,255,0.85)   /* body text */
---white-faint:rgba(255,255,255,0.62)  /* meta/captions */
---card:      rgba(255,255,255,0.07)   /* card bg on teal */
---line:      rgba(255,255,255,0.16)   /* hairline borders */
---radius:    15px                     /* pill/round buttons & cards */
+--ink:       #1a1a2e   /* near-black body text */
+--ink-light: #3d3d5c   /* lighter text */
+--ink-faint: #6b6b8a   /* meta/captions */
+--gold:      #c9a84c   /* accents, CTAs, eyebrows */
+--gold-dark: #b8963f   /* button hover */
+--ivory:     #faf8f5   /* page background */
+--ivory-warm:#f5f0e8   /* alt sections / card tint */
+--card-bg:   #ffffff   /* card backgrounds */
+--line:      #e5e0d8   /* hairline borders */
+--radius:    15px      /* pill/round buttons & cards */
 ```
 
-- h1: `clamp(2.3rem, 4.6vw, 3.9rem)` Poppins 600, white, line-height 1.15
-- h2: `clamp(1.8rem, 3.4vw, 2.7rem)` Poppins 600, white
-- h3: `1.2rem` Poppins 600, white
-- body: `1rem/1.7` Poppins 400, `--white-dim`
-- `.eyebrow`: `0.78rem` Poppins 600, `letter-spacing:0.22em`, uppercase, `--coral`
+- h1: `clamp(2.3rem, 4.6vw, 3.9rem)` Poppins 600, `--ink`, line-height 1.15
+- h2: `clamp(1.8rem, 3.4vw, 2.7rem)` Poppins 600, `--ink`
+- h3: `1.2rem` Poppins 600, `--ink`
+- body: `1rem/1.7` Poppins 400, `--ink-light`
+- `.eyebrow`: `0.78rem` Poppins 600, `letter-spacing:0.22em`, uppercase, `--gold`
 
 ## 3. Components (exact class names)
 
-- `.nav` — fixed top, TRANSPARENT background (page bg is teal), 1px `rgba(255,255,255,0.25)`
-  bottom border, white links, z-index 100. On scroll `.nav.scrolled` = solid `--teal-dark`
-  background (no blur, no shadow). `.nav-brand` = logo IMAGE ONLY (see fixes), height 40px,
-  width auto. `.nav-links` white 16px/400, hover = coral, `.active` = coral. `.burger` (3 white
-  lines) visible < 720px; `body.menu-open .nav-links` slides in as a `--teal-deep` panel from
-  the right.
-- `.btn` — inline-flex, height 50px, padding 0 32px, background `--coral`, white text, radius
-  `15px`, Poppins 600 1rem. Hover: background `--coral-dark`. NO transform.
-  `.btn-outline` — transparent, 1px `rgba(255,255,255,0.7)` border, white text; hover: white
-  bg + teal text. `.btn-invert` — white bg, `--coral` text; hover `#fff`→lighten.
-- `.hero` — teal bg, `min-height:100vh`, flex center, text CENTERED (eyebrow, h1, dek,
-  meta, actions all centered). `.hero-dek` max-width 640px, margin auto, `--white-dim`.
-  `.hero-figure` — centered, image radius 15px, thin white border, subtle shadow.
-  `.figcaption` `--white-faint`, 0.85rem, centered.
-- `.section` — padding 90px 0, teal bg. `.section-head` centered, max-width 720px margin auto.
-  `.section-head h2` + `.section-head p` (`--white-dim`) centered.
+- `.nav` — fixed top, white background, 1px `--line` bottom border, `--ink` links, z-index 100.
+  On scroll `.nav.scrolled` = solid white bg with subtle shadow. `.nav-brand` = logo IMAGE ONLY
+  (see fixes), height 40px, width auto. `.nav-links` `--ink` 16px/400, hover = `--gold`,
+  `.active` = `--gold`. `.burger` (3 `--ink` lines) visible < 720px; `body.menu-open .nav-links`
+  slides in as a white panel from the right.
+- `.btn` — inline-flex, height 50px, padding 0 32px, background `--gold`, white text, radius
+  `15px`, Poppins 600 1rem. Hover: background `--gold-dark`. NO transform.
+  `.btn-outline` — transparent, 1px `--line` border, `--ink` text; hover: white bg + `--ink`
+  text. `.btn-invert` — white bg, `--gold` text; hover → `--gold-dark`.
+- `.hero` — `--ivory` bg, `min-height:100vh`, flex center, text CENTERED (eyebrow, h1, dek,
+  meta, actions all centered). `.hero-dek` max-width 640px, margin auto, `--ink-light`.
+  `.hero-figure` — centered, image radius 15px, thin `--line` border, subtle shadow.
+  `.figcaption` `--ink-faint`, 0.85rem, centered.
+- `.section` — padding 90px 0, `--ivory` bg. `.section-head` centered, max-width 720px margin auto.
+  `.section-head h2` + `.section-head p` (`--ink-light`) centered.
 - `.split` — 2-col grid (1.05fr / 0.95fr, gap 56px, align-items center). `.brand-block` = card
-  (`--card` bg, 1px `--line`, radius 15px, padding 36px), stacked serif-free Poppins 700 words,
-  middle word `--coral`. `.split-copy` eyebrow + h2 + `.status` + p.
-- `.status` — quiet pill: `--card` bg, 1px `--line`, `--white-dim` text, radius 999px,
-  padding 8px 18px, 0.75rem uppercase letter-spaced, with a 8px `--coral` dot (no animation).
-- `.grid-3` — `grid-template-columns:repeat(3,1fr); gap:24px;`. `.item` card: `--card` bg,
-  1px `--line`, radius 15px, padding 32px. Hover = background lighten to
-  `rgba(255,255,255,0.12)` only. `.item-num` Poppins 600 `--coral`. `.item h3` white,
-  `.item p` `--white-dim` 0.95rem.
-- `.ig-grid` — 3-col grid, gap 20px, CENTERED in container. `.ig-card` — `--card` bg, 1px
+  (`--card-bg` bg, 1px `--line`, radius 15px, padding 36px), stacked serif-free Poppins 700 words,
+  middle word `--gold`. `.split-copy` eyebrow + h2 + `.status` + p.
+- `.status` — quiet pill: `--ivory-warm` bg, 1px `--line`, `--ink-light` text, radius 999px,
+  padding 8px 18px, 0.75rem uppercase letter-spaced, with a 8px `--gold` dot (no animation).
+- `.grid-3` — `grid-template-columns:repeat(3,1fr); gap:24px;`. `.item` card: `--card-bg` bg,
+  1px `--line`, radius 15px, padding 32px. Hover = box-shadow lift. `.item-num` Poppins 600
+  `--gold`. `.item h3` `--ink`, `.item p` `--ink-light` 0.95rem.
+- `.ig-grid` — 3-col grid, gap 20px, CENTERED in container. `.ig-card` — `--card-bg` bg, 1px
   `--line`, radius 15px, overflow hidden. `.ig-card img` aspect-ratio 4/5, object-fit cover,
   width 100%. Hover: image opacity 0.9 only. `.ig-cap` + `.ig-meta` padding 12px 14px,
-  `--white-dim` / `--white-faint` (serif NOT used — Poppins). `.ig-empty` centered `--white-dim`.
-- Icon buttons (Field Notes): `.icon-btn` — 56×56, radius 15px, `--coral` bg, white SVG fill,
-  centered grid. Hover `--coral-dark`. SVG inside sized 26×26.
-- `.footer-social` — flex row, gap 12px, links = 44×44, radius 12px, `--card` bg, 1px `--line`,
-  white SVG fill 22×22, hover → `--coral` bg.
-- `.footer` — `--teal-deep` bg, padding 64px 0 0. `.footer-grid` 3-col (brand+desc / Explore /
-  Connect). `.footer-links` vertical white-dim, hover coral. `.legal` top hairline
-  `rgba(255,255,255,0.15)`, `--white-faint`, centered, 0.85rem.
-- `.cta-band` (mentor page) — `--coral` bg, centered, padding 80px 0, white text, `.btn-invert`.
+  `--ink-light` / `--ink-faint` (serif NOT used — Poppins). `.ig-empty` centered `--ink-light`.
+- Icon buttons (Field Notes): `.icon-btn` — 56×56, radius 15px, `--gold` bg, white SVG fill,
+  centered grid. Hover `--gold-dark`. SVG inside sized 26×26.
+- `.footer-social` — flex row, gap 12px, links = 44×44, radius 12px, `--ivory-warm` bg, 1px `--line`,
+  `--ink` SVG fill 22×22, hover → `--gold` bg.
+- `.footer` — `--ink` bg, padding 64px 0 0. `.footer-grid` 3-col (brand+desc / Explore /
+  Connect). `.footer-links` vertical `--ivory-warm` (0.85), hover `--gold`. `.legal` top hairline
+  `rgba(255,255,255,0.15)`, `--ink-faint`, centered, 0.85rem.
+- `.cta-band` (mentor page) — `--gold` bg, centered, padding 80px 0, white text, `.btn-invert`.
 
 ## 4. Brand SVG icons (use verbatim, `fill="currentColor"`)
 

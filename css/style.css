@@ -1,14 +1,13 @@
 :root {
-  --teal: #297698;
-  --teal-dark: #1E5D7B;
-  --teal-deep: #16485E;
-  --coral: #EB5354;
-  --coral-dark: #D94546;
-  --white: #FFFFFF;
-  --white-dim: rgba(255, 255, 255, 0.85);
-  --white-faint: rgba(255, 255, 255, 0.62);
-  --card: rgba(255, 255, 255, 0.07);
-  --line: rgba(255, 255, 255, 0.16);
+  --ink: #1a1a2e;
+  --ink-light: #3d3d5c;
+  --ink-faint: #6b6b8a;
+  --gold: #c9a84c;
+  --gold-dark: #b8963f;
+  --ivory: #faf8f5;
+  --ivory-warm: #f5f0e8;
+  --card-bg: #ffffff;
+  --line: #e5e0d8;
   --radius: 15px;
   --font: "Poppins", system-ui, -apple-system, sans-serif;
   --maxw: 1200px;
@@ -31,8 +30,8 @@ body {
   font-family: var(--font);
   font-size: 1rem;
   line-height: 1.7;
-  color: var(--white-dim);
-  background: var(--teal);
+  color: var(--ink);
+  background: var(--ivory);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
@@ -43,7 +42,7 @@ h2,
 h3 {
   font-family: var(--font);
   font-weight: 600;
-  color: var(--white);
+  color: var(--ink);
   line-height: 1.2;
 }
 
@@ -65,7 +64,7 @@ p {
 }
 
 a {
-  color: var(--coral);
+  color: var(--gold);
 }
 
 img {
@@ -75,12 +74,12 @@ img {
 }
 
 ::selection {
-  background: var(--coral);
-  color: var(--white);
+  background: var(--gold);
+  color: #fff;
 }
 
 :focus-visible {
-  outline: 2px solid var(--coral);
+  outline: 2px solid var(--gold);
   outline-offset: 2px;
 }
 
@@ -99,7 +98,7 @@ img {
   font-size: 0.78rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--coral);
+  color: var(--gold);
 }
 
 /* ---------------------------------- Nav ---------------------------------- */
@@ -116,12 +115,13 @@ img {
   justify-content: space-between;
   gap: 24px;
   padding-inline: max(24px, calc((100vw - var(--maxw)) / 2));
-  background: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  background: var(--ivory);
+  border-bottom: 1px solid var(--line);
 }
 
 .nav.scrolled {
-  background: var(--teal-dark);
+  background: var(--card-bg);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.08);
 }
 
 .nav-brand {
@@ -146,7 +146,7 @@ img {
 .nav-links a {
   display: inline-block;
   padding: 6px 0;
-  color: var(--white);
+  color: var(--ink);
   text-decoration: none;
   font-family: var(--font);
   font-weight: 400;
@@ -155,11 +155,11 @@ img {
 }
 
 .nav-links a:hover {
-  color: var(--coral);
+  color: var(--gold);
 }
 
 .nav-links a.active {
-  color: var(--coral);
+  color: var(--gold);
 }
 
 .burger {
@@ -176,7 +176,7 @@ img {
   display: block;
   width: 22px;
   height: 2px;
-  background: var(--white);
+  background: var(--ink);
 }
 
 body.menu-open {
@@ -194,8 +194,8 @@ body.menu-open {
   padding: 0 32px;
   border: 1px solid transparent;
   border-radius: var(--radius);
-  background: var(--coral);
-  color: var(--white);
+  background: var(--gold);
+  color: #fff;
   font-family: var(--font);
   font-weight: 600;
   font-size: 1rem;
@@ -206,30 +206,30 @@ body.menu-open {
 }
 
 .btn:hover {
-  background: var(--coral-dark);
-  color: var(--white);
+  background: var(--gold-dark);
+  color: #fff;
 }
 
 .btn-outline {
   background: transparent;
-  border-color: rgba(255, 255, 255, 0.7);
-  color: var(--white);
+  border-color: var(--ink);
+  color: var(--ink);
 }
 
 .btn-outline:hover {
-  background: var(--white);
-  border-color: var(--white);
-  color: var(--teal);
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--ivory);
 }
 
 .btn-invert {
-  background: var(--white);
-  color: var(--coral);
+  background: var(--ink);
+  color: var(--gold);
 }
 
 .btn-invert:hover {
-  background: var(--white);
-  color: var(--coral-dark);
+  background: var(--ink-light);
+  color: var(--gold);
 }
 
 /* ----------------------------------- Hero --------------------------------- */
@@ -240,7 +240,7 @@ body.menu-open {
   justify-content: center;
   min-height: 100vh;
   padding: 96px 0;
-  background: var(--teal);
+  background: var(--ivory);
   text-align: center;
 }
 
@@ -260,7 +260,7 @@ body.menu-open {
 .hero-dek {
   max-width: 640px;
   margin: 20px auto 0;
-  color: var(--white-dim);
+  color: var(--ink-light);
 }
 
 .hero-meta {
@@ -270,7 +270,7 @@ body.menu-open {
   font-size: 0.78rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--white-faint);
+  color: var(--ink-faint);
 }
 
 .hero-actions {
@@ -291,15 +291,15 @@ body.menu-open {
   width: 100%;
   height: auto;
   border-radius: var(--radius);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 4px 20px rgba(10, 40, 60, 0.25);
+  border: 1px solid var(--line);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .figcaption {
   margin-top: 12px;
   font-family: var(--font);
   font-size: 0.85rem;
-  color: var(--white-faint);
+  color: var(--ink-faint);
   text-align: center;
 }
 
@@ -307,7 +307,11 @@ body.menu-open {
 
 .section {
   padding: 90px 0;
-  background: var(--teal);
+  background: var(--ivory);
+}
+
+.section-alt {
+  background: var(--ivory-warm);
 }
 
 .section-head {
@@ -321,7 +325,7 @@ body.menu-open {
 }
 
 .section-head p {
-  color: var(--white-dim);
+  color: var(--ink-light);
 }
 
 /* ---------------------------------- Split ---------------------------------- */
@@ -334,7 +338,7 @@ body.menu-open {
 }
 
 .brand-block {
-  background: var(--card);
+  background: var(--ivory-warm);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 36px;
@@ -347,11 +351,11 @@ body.menu-open {
   font-weight: 700;
   font-size: clamp(1.5rem, 3vw, 2.1rem);
   line-height: 1.25;
-  color: var(--white);
+  color: var(--ink);
 }
 
 .bb-word:nth-child(2) {
-  color: var(--coral);
+  color: var(--gold);
 }
 
 .split-copy h2 {
@@ -363,15 +367,15 @@ body.menu-open {
 }
 
 .split-copy p {
-  color: var(--white-dim);
+  color: var(--ink-light);
 }
 
 .split img {
   width: 100%;
   height: auto;
   border-radius: var(--radius);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 4px 20px rgba(10, 40, 60, 0.25);
+  border: 1px solid var(--line);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .status {
@@ -381,8 +385,8 @@ body.menu-open {
   padding: 8px 18px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: var(--card);
-  color: var(--white-dim);
+  background: var(--ivory-warm);
+  color: var(--ink);
   font-family: var(--font);
   font-weight: 500;
   font-size: 0.75rem;
@@ -397,7 +401,7 @@ body.menu-open {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--coral);
+  background: var(--gold);
 }
 
 /* ---------------------------------- Grid 3 --------------------------------- */
@@ -409,7 +413,7 @@ body.menu-open {
 }
 
 .item {
-  background: var(--card);
+  background: var(--card-bg);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 32px;
@@ -417,7 +421,7 @@ body.menu-open {
 }
 
 .item:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--ivory-warm);
 }
 
 .item-num {
@@ -426,7 +430,7 @@ body.menu-open {
   font-family: var(--font);
   font-weight: 600;
   font-size: 1.4rem;
-  color: var(--coral);
+  color: var(--gold);
 }
 
 .item h3 {
@@ -435,7 +439,7 @@ body.menu-open {
 
 .item p {
   font-size: 0.95rem;
-  color: var(--white-dim);
+  color: var(--ink-light);
 }
 
 /* -------------------------------- Field Notes ------------------------------- */
@@ -451,7 +455,7 @@ body.menu-open {
 .ig-card {
   display: flex;
   flex-direction: column;
-  background: var(--card);
+  background: var(--card-bg);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
@@ -473,7 +477,7 @@ body.menu-open {
   padding: 12px 14px 4px;
   font-family: var(--font);
   font-size: 0.9rem;
-  color: var(--white-dim);
+  color: var(--ink);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -487,12 +491,12 @@ body.menu-open {
   font-size: 0.7rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--white-faint);
+  color: var(--gold);
 }
 
 .ig-empty {
   text-align: center;
-  color: var(--white-dim);
+  color: var(--ink-light);
 }
 
 .icon-btn {
@@ -501,14 +505,14 @@ body.menu-open {
   width: 56px;
   height: 56px;
   border-radius: var(--radius);
-  background: var(--coral);
-  color: var(--white);
+  background: var(--gold);
+  color: #fff;
   text-decoration: none;
   transition: background-color 0.2s ease;
 }
 
 .icon-btn:hover {
-  background: var(--coral-dark);
+  background: var(--gold-dark);
 }
 
 .icon-btn svg {
@@ -520,7 +524,7 @@ body.menu-open {
 /* ---------------------------------- Footer --------------------------------- */
 
 .footer {
-  background: var(--teal-deep);
+  background: var(--ink);
   padding: 64px 0 0;
 }
 
@@ -535,6 +539,7 @@ body.menu-open {
   font-size: 0.8rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  color: var(--ivory-warm);
 }
 
 .footer-brand {
@@ -552,7 +557,7 @@ body.menu-open {
 .footer-desc {
   max-width: 320px;
   font-size: 0.95rem;
-  color: var(--white-dim);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .footer-links {
@@ -563,13 +568,13 @@ body.menu-open {
 }
 
 .footer-links a {
-  color: var(--white-dim);
+  color: var(--ivory-warm);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .footer-links a:hover {
-  color: var(--coral);
+  color: var(--gold);
 }
 
 .footer-social {
@@ -583,16 +588,16 @@ body.menu-open {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: var(--card);
-  border: 1px solid var(--line);
-  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
   text-decoration: none;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .footer-social a:hover {
-  background: var(--coral);
-  color: var(--white);
+  background: var(--gold);
+  color: #fff;
 }
 
 .footer-social svg {
@@ -604,32 +609,34 @@ body.menu-open {
 .legal {
   margin-top: 56px;
   padding: 24px 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid var(--line);
   text-align: center;
   font-size: 0.85rem;
-  color: var(--white-faint);
+  color: var(--ink-faint);
 }
 
 /* ---------------------------------- CTA ------------------------------------ */
 
 .cta-band {
-  background: var(--coral);
+  background: var(--ink);
   padding: 80px 0;
   text-align: center;
+  color: #fff;
 }
 
 .cta-band h2 {
   margin: 16px 0;
+  color: #fff;
 }
 
 .cta-band p {
   max-width: 560px;
   margin: 0 auto 36px;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .cta-band .eyebrow {
-  color: var(--white);
+  color: var(--gold);
 }
 
 /* ---------------------------------- Steps ---------------------------------- */
@@ -652,8 +659,8 @@ body.menu-open {
   height: 48px;
   margin: 0 auto 16px;
   border-radius: 50%;
-  background: var(--coral);
-  color: var(--white);
+  background: var(--gold);
+  color: #fff;
   font-family: var(--font);
   font-weight: 600;
   font-size: 1.1rem;
@@ -667,7 +674,7 @@ body.menu-open {
   max-width: 280px;
   margin-inline: auto;
   font-size: 0.95rem;
-  color: var(--white-dim);
+  color: var(--ink-light);
 }
 
 /* ---------------------------------- Reveal ---------------------------------- */
@@ -722,7 +729,7 @@ body.menu-open {
     align-items: stretch;
     gap: 4px;
     padding: 84px 24px 24px;
-    background: var(--teal-deep);
+    background: var(--ivory);
     border-left: 1px solid var(--line);
     transform: translateX(105%);
     transition: transform 0.3s ease;
@@ -737,6 +744,7 @@ body.menu-open {
     display: block;
     padding: 14px 0;
     font-size: 1.05rem;
+    color: var(--ink);
   }
 
   .section {
