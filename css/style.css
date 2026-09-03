@@ -479,6 +479,204 @@ body.menu-open {
   transform: translateY(0);
 }
 
+/* ----------------------------------- Buttons ----------------------------------- */
+
+.btn-invert {
+  background: var(--black);
+  color: var(--white);
+}
+
+.btn-invert:hover {
+  opacity: 0.88;
+}
+
+/* ----------------------------------- Hero Copy -------------------------------- */
+
+.hero-copy {
+  max-width: 560px;
+}
+
+.hero-meta {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+/* ----------------------------------- Split Copy ------------------------------- */
+
+.split-copy h2 {
+  margin-bottom: 12px;
+}
+
+.split-copy .status {
+  margin-bottom: 16px;
+}
+
+/* ----------------------------------- Two Col ---------------------------------- */
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.two-col-text h2 {
+  margin-bottom: 12px;
+}
+
+.two-col-text p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.two-col-img img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+/* ---------------------------------- Section Head ------------------------------ */
+
+.section-head-left h2 {
+  margin-bottom: 8px;
+}
+
+.section-head-left p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* ----------------------------------- Cards ------------------------------------ */
+
+.card-minimal {
+  background: var(--light-gray);
+  padding: 28px;
+  border-radius: var(--radius);
+}
+
+.card-minimal h3 {
+  margin-bottom: 8px;
+}
+
+.card-minimal p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.card-note {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: 12px;
+}
+
+/* ---------------------------------- Lists ------------------------------------- */
+
+.check-list {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.check-list li {
+  padding: 8px 0;
+  font-size: 1.05rem;
+}
+
+.check-list li::before {
+  content: "✓ ";
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.apply-list {
+  list-style: none;
+  counter-reset: apply;
+}
+
+.apply-list li {
+  counter-increment: apply;
+  padding: 10px 0;
+  font-size: 1.05rem;
+}
+
+.apply-list li::before {
+  content: counter(apply) ".";
+  font-weight: 600;
+  color: var(--gold);
+  margin-right: 8px;
+}
+
+/* -------------------------------- Icon Button --------------------------------- */
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #e5e5e5;
+  color: var(--text);
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.icon-btn:hover {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+}
+
+.icon-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+/* -------------------------------- Social Links ------------------------------- */
+
+.social-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+/* ----------------------------------- CTA Band --------------------------------- */
+
+.cta-band {
+  padding: 80px 0;
+  background: var(--black);
+  color: var(--white);
+  text-align: center;
+}
+
+.cta-band h2 {
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.cta-band p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 32px;
+}
+
+.cta-band .hero-actions {
+  justify-content: center;
+}
+
+/* --------------------------------- Flip on Tablet ----------------------------- */
+
+@media (min-width: 641px) and (max-width: 1020px) {
+  .flip-on-tablet .split > *:first-child {
+    order: 2;
+  }
+  .flip-on-tablet .split > *:last-child {
+    order: 1;
+  }
+}
+
 /* ------------------------------- Responsive -------------------------------- */
 
 @media (max-width: 1020px) {
@@ -490,6 +688,11 @@ body.menu-open {
   .split {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
 
   .stat-row {
